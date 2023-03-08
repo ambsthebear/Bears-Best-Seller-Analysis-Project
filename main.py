@@ -75,6 +75,18 @@ def analysis_three(book_list):
 
 def bonus_analysis_one(book_list):
     print("Analysis of which author has shown up on the book list the most (Distinct books only!)")
+    authors_and_titles = [((book['author']), (book['name'])) for book in book_list]
+    unique_authors_distinct_books = set(authors_and_titles)
+    top_author = {
+        'author_and_book': '',
+        'count': 0
+    }
+    for author in unique_authors_distinct_books:
+        number_of_repetitions = len(list(filter(lambda book: book == author, authors_and_titles)))
+        if number_of_repetitions > top_author['count']:
+            top_author['author_and_book'] = author
+            top_author['count'] = number_of_repetitions
+    print(top_author)
 
 
 def bonus_analysis_two(book_list):
@@ -85,4 +97,5 @@ def bonus_analysis_three(book_list):
     print("Analysis of which book has appeared the most consecutively on the book list")
 
 
-run_analysis(data_list)
+bonus_analysis_one(data_list)
+
