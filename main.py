@@ -36,6 +36,9 @@ def example_analysis(book_list):
 
 def analysis_one(book_list):
     print("Analysis of which book had the lowest number of reviews in 2018")
+    books_2018 = list(filter(lambda book: book ['year'] == 2018, book_list))
+    lowest_number_of_reviews = min(books_2018, key = lambda book: book ['number_of_reviews'])
+    print(f"The book with the lowest number of reviews in 2018 was " + f"{lowest_number_of_reviews['name']}" + f" with a total of {lowest_number_of_reviews['number_of_reviews']} reviews.")
 
 
 def analysis_two(book_list):
@@ -61,4 +64,4 @@ def bonus_analysis_three(book_list):
     print("Analysis of which book has appeared the most consecutively on the book list")
 
 
-run_analysis(data_list)
+analysis_one(data_list)
