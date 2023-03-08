@@ -56,7 +56,10 @@ def analysis_two(book_list):
 
 def analysis_three(book_list):
     print("Analysis of which book has appeared the most in the book list, and how many times it has appeared")
-
+    working_list = list(book_list)
+    duplicate_titles = [book for book in working_list if [working_list[book['name']]].count(book) > 1]
+    print(duplicate_titles)
+    
 
 # BONUS USER STORIES:
 
@@ -73,4 +76,4 @@ def bonus_analysis_three(book_list):
     print("Analysis of which book has appeared the most consecutively on the book list")
 
 
-analysis_two(data_list)
+analysis_three(data_list)
