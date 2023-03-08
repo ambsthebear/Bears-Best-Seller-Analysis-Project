@@ -53,12 +53,21 @@ def analysis_two(book_list):
         print("Both fiction and non-fiction have appeared equally in the bestseller books list.")
 
 
-
 def analysis_three(book_list):
     print("Analysis of which book has appeared the most in the book list, and how many times it has appeared")
-    working_list = list(book_list)
-    duplicate_titles = [book for book in working_list if [working_list[book['name']]].count(book) > 1]
-    print(duplicate_titles)
+    titles = [book['name'] for book in book_list]
+    unique_titles = set(titles)
+    top_book = {
+        'title': '',
+        'count': 0
+        }
+    for title in unique_titles:
+        amount_of_repetitions = len(list(filter(lambda name: name == title, titles)))
+        if amount_of_repetitions > top_book['count']:
+            top_book['title'] = title
+            top_book['count'] = amount_of_repetitions
+    print(f'The top book in our list is "{top_book["title"]}" and it has been a best seller {top_book["count"]} times.')
+
     
 
 # BONUS USER STORIES:
@@ -76,4 +85,4 @@ def bonus_analysis_three(book_list):
     print("Analysis of which book has appeared the most consecutively on the book list")
 
 
-analysis_three(data_list)
+run_analysis(data_list)
