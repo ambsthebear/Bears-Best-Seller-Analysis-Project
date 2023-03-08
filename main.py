@@ -18,6 +18,10 @@ def run_analysis(books):
     print("*******************************************************************")
     print('')
     analysis_three(books)
+    print('')
+    print("*******************************************************************")
+    print('')
+    bonus_analysis_one(books)
 
 
 def example_analysis(book_list):
@@ -81,12 +85,12 @@ def bonus_analysis_one(book_list):
         'author_and_book': '',
         'count': 0
     }
-    for author in unique_authors_distinct_books:
-        number_of_repetitions = len(list(filter(lambda book: book == author, authors_and_titles)))
+    for writer in unique_authors_distinct_books:
+        number_of_repetitions = len(list(filter(lambda author: author == writer, authors_and_titles)))
         if number_of_repetitions > top_author['count']:
-            top_author['author_and_book'] = author
+            top_author['author_and_book'] = writer
             top_author['count'] = number_of_repetitions
-    print(top_author)
+    print(f'The most popular author and book is "{top_author["author_and_book"]}" which has been a bestseller {top_author["count"]} times.')
 
 
 def bonus_analysis_two(book_list):
@@ -97,5 +101,5 @@ def bonus_analysis_three(book_list):
     print("Analysis of which book has appeared the most consecutively on the book list")
 
 
-bonus_analysis_one(data_list)
+run_analysis(data_list)
 
