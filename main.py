@@ -43,6 +43,15 @@ def analysis_one(book_list):
 
 def analysis_two(book_list):
     print("Analysis of which genre (fiction or non-fiction) has appeared the most in the book list")
+    nonfic_list = list(filter(lambda book: book['genre'] == 'Non Fiction', book_list))
+    fic_list = list(filter(lambda book: book['genre'] == 'Fiction', book_list))
+    if len(nonfic_list) > len(fic_list):
+        print("The non-fiction genre has appeared the most in the bestseller book list.")
+    elif len(nonfic_list) < len(fic_list):
+        print("The fiction genre has appeared the most in the bestseller book list.")
+    else:
+        print("Both fiction and non-fiction have appeared equally in the bestseller books list.")
+
 
 
 def analysis_three(book_list):
@@ -64,4 +73,4 @@ def bonus_analysis_three(book_list):
     print("Analysis of which book has appeared the most consecutively on the book list")
 
 
-analysis_one(data_list)
+analysis_two(data_list)
